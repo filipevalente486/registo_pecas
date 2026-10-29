@@ -1,0 +1,11 @@
+﻿.venv/
+__pycache__/
+*.pyc
+*.db
+*.sqlite
+*.sqlite3
+.vscode/
+.idea/
+.DS_Store
+.streamlit/secrets.toml
+estado atual do projeto.txt
