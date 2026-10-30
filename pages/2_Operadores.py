@@ -8,7 +8,11 @@ from database import (
     listar_utilizadores, criar_utilizador,
     atualizar_utilizador, deletar_utilizador,
 )
-from auth import esta_logado, is_admin, validar_password,
+from auth import (
+    esta_logado,
+    is_admin,
+    validar_password,
+)
 
 if not esta_logado():
     st.warning("Faça login primeiro.")
