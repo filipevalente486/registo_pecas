@@ -118,26 +118,26 @@ elif st.session_state.user_modo == "criar":
         with cb:
             cancelar = st.form_submit_button("❌ Cancelar")
 
-if salvar:
-    if not username or not nome or not password:
-        st.error("Preencha todos os campos obrigatórios.")
-    else:
-        erros_forca = validar_password(password)
-        if erros_forca:
-            for e in erros_forca:
-                st.error(e)
-        else:
-            uid = criar_utilizador(username.strip(), password, role, nome.strip())
-            if uid is None:
-                st.error("Esse nome de utilizador já existe.")
+        if salvar:
+            if not username or not nome or not password:
+                st.error("Preencha todos os campos obrigatórios.")
             else:
-                st.success(f"Utilizador #{uid} criado!")
-                st.session_state.user_modo = "listar"
-                st.rerun()
+                erros_forca = validar_password(password)
+                if erros_forca:
+                    for e in erros_forca:
+                        st.error(e)
+                else:
+                    uid = criar_utilizador(username.strip(), password, role, nome.strip())
+                    if uid is None:
+                        st.error("Esse nome de utilizador já existe.")
+                    else:
+                        st.success(f"Utilizador #{uid} criado!")
+                        st.session_state.user_modo = "listar"
+                        st.rerun()
+
         if cancelar:
             st.session_state.user_modo = "listar"
             st.rerun()
-
 
 # =========================================================
 # EDITAR
